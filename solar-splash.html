@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Splash — UB ASME</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #5b9bd5; --blue-light: #78b0df; --navy: #0a1628; --navy-mid: #1a3a6e;
+      --text: #1a1a1a; --text-muted: #555; --bg: #f5f5f3; --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.1); --radius-md: 8px; --radius-lg: 14px;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,22,40,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--navy-mid);
+      padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 0.04em; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: #8ba8c8; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    .page-hero { background: var(--navy); padding: 4rem 2rem 3rem; position: relative; overflow: hidden; }
+    .page-hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px; border: 2px solid var(--navy-mid); border-radius: 50%;
+    }
+    .page-hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 80px); color: #fff; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .page-hero h1 span { color: var(--blue); }
+    .page-hero p { font-size: 16px; color: #8ba8c8; max-width: 560px; line-height: 1.7; }
+
+    .content { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--blue); text-decoration: none; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--blue-light); }
+
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+    .section-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 2.5rem; max-width: 640px; }
+
+    .win-banner {
+      background: linear-gradient(135deg, #0a1628 0%, #0f2d55 100%);
+      border-radius: var(--radius-lg); padding: 2rem 2.5rem;
+      display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem;
+      border: 1px solid var(--navy-mid);
+    }
+    .trophy-icon { font-size: 56px; color: #f0c040; flex-shrink: 0; }
+    .win-text h3 { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #fff; letter-spacing: 0.02em; margin-bottom: 6px; }
+    .win-text p { font-size: 14px; color: #8ba8c8; line-height: 1.6; }
+
+    .build-section { margin-bottom: 3rem; }
+    .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .build-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+    }
+    .photo-placeholder {
+      width: 100%; height: 240px; background: #dde8f2;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; color: #7a9ab8; border-bottom: 1px solid var(--border);
+    }
+    .photo-placeholder i { font-size: 40px; }
+    .photo-placeholder .ph-label { font-size: 13px; font-weight: 500; }
+    .photo-placeholder .ph-sub { font-size: 11px; color: #aac0d0; }
+    .card-body { padding: 1.5rem; }
+    .card-body h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .card-body p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .what-section {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem; margin-bottom: 3rem;
+    }
+    .what-section h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; margin-bottom: 1rem; letter-spacing: 0.02em; }
+    .what-section p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.75rem; }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--blue); font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500; padding: 10px 20px;
+      border-radius: var(--radius-md); border: 1px solid var(--blue);
+      cursor: pointer; text-decoration: none; transition: all 0.2s; margin-top: 1rem;
+    }
+    .btn-back:hover { background: var(--blue); color: var(--navy); }
+
+    footer { background: var(--navy); color: #8ba8c8; text-align: center; padding: 2rem; font-size: 13px; }
+    footer span { color: var(--blue); }
+    @media (max-width: 600px) { .build-grid { grid-template-columns: 1fr; } .win-banner { flex-direction: column; gap: 1rem; } nav .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">UB <span>ASME</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#teams">Teams</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#events">Events</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">UB ASME Project Team</p>
+    <h1>Solar <span>Splash</span></h1>
+    <p>Designing and racing solar-powered boats at the international collegiate Solar Splash competition — and winning every single year.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <a href="index.html" class="back-link"><i class="ti ti-arrow-left"></i> Back to all teams</a>
+
+  <div class="win-banner">
+    <i class="ti ti-trophy" aria-hidden="true" class="trophy-icon" style="font-size: 56px; color: #f0c040; flex-shrink: 0;"></i>
+    <div class="win-text">
+      <h3>We Win Every Year</h3>
+      <p>UB ASME's Solar Splash team has an unbroken record of winning at the international Solar Splash competition. Year after year, our team proves that engineering excellence at Buffalo is second to none.</p>
+    </div>
+  </div>
+
+  <div class="what-section">
+    <h3>What is Solar Splash?</h3>
+    <p>Solar Splash is the World Championship of intercollegiate solar boating, organized by the Institute of Electrical and Electronics Engineers (IEEE). Teams from universities across the country and around the world design, build, and race solar-powered watercraft in a series of events including sprint races, endurance challenges, and technical presentations.</p>
+    <p>Each team is responsible for every aspect of the boat — from the hull design and solar panel configuration to the motor and electrical systems. It's a true test of multidisciplinary engineering.</p>
+  </div>
+
+  <p class="section-label">This Year's Build</p>
+  <h2 class="section-title">What We're Racing in 2026</h2>
+  <p class="section-sub">Take a look at this year's solar boat — designed and built entirely by UB ASME members.</p>
+
+  <div class="build-grid" style="margin-bottom: 3rem;">
+    <div class="build-card">
+      <div class="photo-placeholder">
+        <i class="ti ti-photo" aria-hidden="true"></i>
+        <span class="ph-label">Add This Year's Boat Photo</span>
+        <span class="ph-sub">Replace with your 2026 boat image</span>
+      </div>
+      <div class="card-body">
+        <h4>2026 Solar Boat</h4>
+        <p>This year's boat features our most refined hull design yet, optimized for both sprint speed and endurance efficiency.</p>
+      </div>
+    </div>
+
+    <div class="build-card">
+      <div class="photo-placeholder">
+        <i class="ti ti-photo" aria-hidden="true"></i>
+        <span class="ph-label">Add Build / Team Photo</span>
+        <span class="ph-sub">Team at work, competition day, etc.</span>
+      </div>
+      <div class="card-body">
+        <h4>The Team in Action</h4>
+        <p>Dozens of UB students contribute to the Solar Splash build each year — from CAD modeling and composite layups to electrical wiring and race-day operations.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn-back"><i class="ti ti-arrow-left"></i> Back to all teams</a>
+
+</div>
+
+<footer>
+  <p>© 2026 <span>UB ASME</span> — University at Buffalo Student Chapter.</p>
+</footer>
+
+</body>
+</html>

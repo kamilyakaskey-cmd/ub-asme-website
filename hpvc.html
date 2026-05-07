@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>e-HPVC — UB ASME</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #5b9bd5; --blue-light: #78b0df; --navy: #0a1628; --navy-mid: #1a3a6e;
+      --green: #2e8b57; --green-light: #3aaa6a;
+      --text: #1a1a1a; --text-muted: #555; --bg: #f5f5f3; --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.1); --radius-md: 8px; --radius-lg: 14px;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,22,40,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--navy-mid);
+      padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 0.04em; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: #8ba8c8; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    .page-hero { background: var(--navy); padding: 4rem 2rem 3rem; position: relative; overflow: hidden; }
+    .page-hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px; border: 2px solid var(--navy-mid); border-radius: 50%;
+    }
+    .page-hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 80px); color: #fff; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .page-hero h1 span { color: #3aaa6a; }
+    .page-hero p { font-size: 16px; color: #8ba8c8; max-width: 560px; line-height: 1.7; }
+
+    .content { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--blue); text-decoration: none; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--blue-light); }
+
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+    .section-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 2.5rem; max-width: 640px; }
+
+    .what-box {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 2.5rem; margin-bottom: 3rem;
+    }
+    .what-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .what-box p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.75rem; }
+    .what-box p:last-child { margin-bottom: 0; }
+
+    .pillars {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px; margin-top: 1.5rem;
+    }
+    .pillar {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: 1rem; text-align: center;
+    }
+    .pillar i { font-size: 24px; color: var(--green); margin-bottom: 8px; display: block; }
+    .pillar p { font-size: 13px; font-weight: 500; color: var(--text); }
+
+    .year-block { margin-bottom: 3rem; }
+    .year-header {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 1.5rem;
+      padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+    }
+    .year-badge { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--green); line-height: 1; }
+    .year-title { font-size: 22px; font-weight: 500; }
+    .year-title span { display: block; font-size: 13px; font-weight: 400; color: var(--text-muted); margin-top: 2px; }
+
+    .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .photo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .photo-placeholder {
+      width: 100%; height: 240px; background: #0d1e10;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; color: #4a8060; border-bottom: 1px solid var(--border);
+    }
+    .photo-placeholder i { font-size: 40px; }
+    .photo-placeholder .ph-label { font-size: 13px; font-weight: 500; }
+    .photo-placeholder .ph-sub { font-size: 11px; color: #3a6040; }
+    .card-body { padding: 1.5rem; }
+    .card-body h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .card-body p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--blue); font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500; padding: 10px 20px;
+      border-radius: var(--radius-md); border: 1px solid var(--blue);
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-back:hover { background: var(--blue); color: var(--navy); }
+
+    footer { background: var(--navy); color: #8ba8c8; text-align: center; padding: 2rem; font-size: 13px; }
+    footer span { color: var(--blue); }
+    @media (max-width: 600px) { .photo-grid { grid-template-columns: 1fr; } nav .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">UB <span>ASME</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#teams">Teams</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#events">Events</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">UB ASME Project Team</p>
+    <h1>e-<span>HPVC</span></h1>
+    <p>The Electric Human Powered Vehicle Challenge — designing and building a fully enclosed, electric-assist recumbent vehicle for the ASME collegiate competition.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <a href="index.html" class="back-link"><i class="ti ti-arrow-left"></i> Back to all teams</a>
+
+  <div class="what-box">
+    <h3>What is e-HPVC?</h3>
+    <p>The ASME e-Human Powered Vehicle Challenge (e-HPVC) is a collegiate engineering competition where teams design, build, and race a fully enclosed electric-assist recumbent vehicle. The goal is to create a practical, sustainable, and efficient means of transportation — human-powered with electric assist — that could serve as a real-world alternative to cars for short-distance commuting.</p>
+    <p>Teams are judged on multiple criteria including the technical design report, the vehicle's innovation and practicality, and performance in both sprint and endurance races. It's one of the most complete engineering challenges in collegiate competition, requiring expertise across mechanical design, structural analysis, aerodynamics, and electrical systems.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <i class="ti ti-ruler-2" aria-hidden="true"></i>
+        <p>Mechanical Design</p>
+      </div>
+      <div class="pillar">
+        <i class="ti ti-bolt" aria-hidden="true"></i>
+        <p>Electric Systems</p>
+      </div>
+      <div class="pillar">
+        <i class="ti ti-wind" aria-hidden="true"></i>
+        <p>Aerodynamics</p>
+      </div>
+      <div class="pillar">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <p>Race Performance</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="year-block">
+    <div class="year-header">
+      <div class="year-badge">2025</div>
+      <div class="year-title">
+        e-HPVC Competition
+        <span>ASME e-HPVC — 2025</span>
+      </div>
+    </div>
+
+    <p class="section-sub" style="margin-bottom: 1.5rem;">UB ASME competed in the 2025 ASME e-HPVC challenge, fielding a fully built electric human-powered vehicle designed and fabricated entirely by our team.</p>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <i class="ti ti-photo" aria-hidden="true"></i>
+          <span class="ph-label">Add 2025 Vehicle Photo</span>
+          <span class="ph-sub">Replace with your HPVC vehicle image</span>
+        </div>
+        <div class="card-body">
+          <h4>2025 e-HPVC Vehicle</h4>
+          <p>Our 2025 vehicle featured a custom frame, aerodynamic fairing, and integrated electric assist system — designed from the ground up by UB ASME members.</p>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <i class="ti ti-photo" aria-hidden="true"></i>
+          <span class="ph-label">Add Competition / Team Photo</span>
+          <span class="ph-sub">Race day, team photo, build shots, etc.</span>
+        </div>
+        <div class="card-body">
+          <h4>The Team</h4>
+          <p>Building an HPVC vehicle takes a dedicated team working across disciplines — from structural welding and composite fabrication to motor controllers and wiring harnesses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn-back"><i class="ti ti-arrow-left"></i> Back to all teams</a>
+
+</div>
+
+<footer>
+  <p>© 2026 <span>UB ASME</span> — University at Buffalo Student Chapter.</p>
+</footer>
+
+</body>
+</html>

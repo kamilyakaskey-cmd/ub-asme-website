@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDC — UB ASME</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #5b9bd5; --blue-light: #78b0df; --navy: #0a1628; --navy-mid: #1a3a6e;
+      --text: #1a1a1a; --text-muted: #555; --bg: #f5f5f3; --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.1); --radius-md: 8px; --radius-lg: 14px;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,22,40,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--navy-mid);
+      padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 0.04em; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: #8ba8c8; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    .page-hero { background: var(--navy); padding: 4rem 2rem 3rem; position: relative; overflow: hidden; }
+    .page-hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px; border: 2px solid var(--navy-mid); border-radius: 50%;
+    }
+    .page-hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
+    .badge-upcoming {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; background: rgba(91,155,213,0.2); color: var(--blue);
+      padding: 4px 14px; border-radius: 99px; border: 1px solid rgba(91,155,213,0.4);
+      margin-bottom: 1rem;
+    }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 80px); color: #fff; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .page-hero h1 span { color: var(--blue); }
+    .page-hero p { font-size: 16px; color: #8ba8c8; max-width: 560px; line-height: 1.7; }
+
+    .content { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--blue); text-decoration: none; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--blue-light); }
+
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.02em; margin-bottom: 0.75rem; }
+
+    .coming-banner {
+      background: var(--navy); border-radius: var(--radius-lg); padding: 3rem;
+      text-align: center; margin-bottom: 3rem;
+    }
+    .coming-banner i { font-size: 64px; color: var(--blue); margin-bottom: 1.5rem; display: block; }
+    .coming-banner h2 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.75rem; }
+    .coming-banner h2 span { color: var(--blue); }
+    .coming-banner p { font-size: 16px; color: #8ba8c8; line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+    .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 3rem; }
+    .what-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .what-card i { font-size: 28px; color: var(--blue); margin-bottom: 12px; display: block; }
+    .what-card h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .what-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .about-sdc {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 2.5rem; margin-bottom: 3rem;
+    }
+    .about-sdc h3 { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .about-sdc p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.75rem; }
+    .about-sdc p:last-child { margin-bottom: 0; }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--blue); font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 500; padding: 10px 20px;
+      border-radius: var(--radius-md); border: 1px solid var(--blue);
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-back:hover { background: var(--blue); color: var(--navy); }
+
+    footer { background: var(--navy); color: #8ba8c8; text-align: center; padding: 2rem; font-size: 13px; }
+    footer span { color: var(--blue); }
+    @media (max-width: 600px) { .what-grid { grid-template-columns: 1fr; } nav .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">UB <span>ASME</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#teams">Teams</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#events">Events</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">UB ASME Project Team</p>
+    <span class="badge-upcoming">Coming Next Semester</span>
+    <h1>Self-Driving <span>Car</span></h1>
+    <p>UB ASME is launching a brand new team focused on autonomous vehicle design and engineering — the Self-Driving Car challenge is coming next semester.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <a href="index.html" class="back-link"><i class="ti ti-arrow-left"></i> Back to all teams</a>
+
+  <div class="coming-banner">
+    <i class="ti ti-car" aria-hidden="true"></i>
+    <h2>SDC is <span>Coming Soon</span></h2>
+    <p>We're building out our Self-Driving Car team from the ground up starting next semester. Stay tuned — this is going to be one of our most technically ambitious projects yet.</p>
+  </div>
+
+  <div class="about-sdc">
+    <h3>What is the Self-Driving Car Challenge?</h3>
+    <p>The Self-Driving Car (SDC) challenge is a collegiate engineering competition where teams design and build an autonomous vehicle capable of navigating a course without human input. Teams are responsible for the full stack — hardware, sensing, perception, and control algorithms.</p>
+    <p>It's one of the most interdisciplinary challenges in engineering: combining mechanical design, embedded systems, computer vision, machine learning, and real-time control. Students who work on SDC gain skills that are directly applicable to careers in robotics, aerospace, automotive engineering, and AI.</p>
+    <p>UB ASME will be launching this team next semester. If you're interested in being a founding member of the SDC team, reach out to us through the contact page.</p>
+  </div>
+
+  <h2 class="section-title">What You'll Work On</h2>
+
+  <div class="what-grid">
+    <div class="what-card">
+      <i class="ti ti-cpu" aria-hidden="true"></i>
+      <h4>Embedded Systems</h4>
+      <p>Design the onboard computing architecture that processes sensor data and controls the vehicle in real time.</p>
+    </div>
+    <div class="what-card">
+      <i class="ti ti-eye" aria-hidden="true"></i>
+      <h4>Computer Vision</h4>
+      <p>Implement perception algorithms that let the vehicle detect lanes, obstacles, and navigate its environment.</p>
+    </div>
+    <div class="what-card">
+      <i class="ti ti-settings" aria-hidden="true"></i>
+      <h4>Mechanical Design</h4>
+      <p>Build and integrate the physical vehicle — chassis, motor systems, steering, and sensor mounts.</p>
+    </div>
+    <div class="what-card">
+      <i class="ti ti-code" aria-hidden="true"></i>
+      <h4>Control Algorithms</h4>
+      <p>Program the decision-making systems that translate sensor input into smooth, autonomous vehicle control.</p>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn-back"><i class="ti ti-arrow-left"></i> Back to all teams</a>
+
+</div>
+
+<footer>
+  <p>© 2026 <span>UB ASME</span> — University at Buffalo Student Chapter.</p>
+</footer>
+
+</body>
+</html>
