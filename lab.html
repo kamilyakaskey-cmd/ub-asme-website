@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Lab — UB ASME</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #5b9bd5; --blue-light: #78b0df; --navy: #0a1628; --navy-mid: #1a3a6e;
+      --text: #1a1a1a; --text-muted: #555; --bg: #f5f5f3; --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.1); --radius-md: 8px; --radius-lg: 14px;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,22,40,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--navy-mid); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 0.04em; text-decoration: none; }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: #8ba8c8; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--blue); text-decoration: none; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--blue-light); }
+    .page-hero { background: var(--navy); padding: 4rem 2rem 3rem; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border: 2px solid var(--navy-mid); border-radius: 50%; }
+    .page-hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 80px); color: #fff; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .page-hero h1 span { color: var(--blue); }
+    .page-hero p { font-size: 16px; color: #8ba8c8; max-width: 560px; line-height: 1.7; }
+    .content { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+    .section-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 2.5rem; max-width: 640px; }
+
+    .printer-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; display: grid; grid-template-columns: 340px 1fr; }
+    .printer-card img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 280px; }
+    .photo-placeholder { width: 100%; min-height: 280px; background: #e8edf2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: #9aaab8; }
+    .photo-placeholder i { font-size: 40px; }
+    .photo-placeholder span { font-size: 13px; font-weight: 500; }
+    .photo-placeholder small { font-size: 11px; color: #b0bec5; }
+    .printer-info { padding: 2rem; }
+    .printer-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.02em; margin-bottom: 0.5rem; color: var(--text); }
+    .printer-name span { color: var(--blue); }
+    .printer-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .spec-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.75rem 1rem; }
+    .spec-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 3px; }
+    .spec-value { font-size: 13px; color: var(--text); font-weight: 500; }
+    .highlight-chip { display: inline-block; background: #e6f1fb; color: #185fa5; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 99px; margin-top: 1rem; }
+
+    .btn-back { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--blue); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: var(--radius-md); border: 1px solid var(--blue); cursor: pointer; text-decoration: none; transition: all 0.2s; margin-top: 1rem; }
+    .btn-back:hover { background: var(--blue); color: var(--navy); }
+    footer { background: var(--navy); color: #8ba8c8; text-align: center; padding: 2rem; font-size: 13px; }
+    footer span { color: var(--blue); }
+    @media (max-width: 700px) { .printer-card { grid-template-columns: 1fr; } nav .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">UB <span>ASME</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#teams">Teams</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#sponsors">Sponsors</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">UB ASME</p>
+    <h1>Our <span>Lab</span></h1>
+    <p>The equipment powering every UB ASME project — three large format 3D printers capable of printing everything from flexible joints to full structural chassis components.</p>
+  </div>
+</div>
+
+<div class="content">
+  <a href="index.html" class="back-link"><i class="ti ti-arrow-left"></i> Back to home</a>
+
+  <p class="section-label">Equipment</p>
+  <h2 class="section-title">Large Format 3D Printers</h2>
+  <p class="section-sub">Our lab houses three 3D printers, each with different strengths. Together they cover a wide range of materials and part sizes — allowing our teams to print nearly every component in-house.</p>
+
+  <!-- SNAPMAKER -->
+  <div class="printer-card">
+    <img src="IMG_3981.jpg" alt="Snapmaker A350 3D Printer" />
+    <div class="printer-info">
+      <div class="printer-name">Snapmaker <span>A350</span></div>
+      <p class="printer-desc">Our largest printer. The A350's build volume allows us to produce large rover components as single parts, reducing assembly complexity. Provides stable performance, making it ideal for larger structural components where size matters.</p>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-label">Build Volume</div>
+          <div class="spec-value">320 × 350 × 330 mm</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Materials</div>
+          <div class="spec-value">PLA, PETG, TPU</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Best For</div>
+          <div class="spec-value">Large structural parts</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Rigid & Flexible</div>
+          <div class="spec-value">Yes</div>
+        </div>
+      </div>
+      <span class="highlight-chip">Largest build volume in our lab</span>
+    </div>
+  </div>
+
+  <!-- CREALITY -->
+  <div class="printer-card">
+    <div class="photo-placeholder">
+      <i class="ti ti-photo" aria-hidden="true"></i>
+      <span>Add Creality Ender 5 S1 Photo</span>
+      <small>Replace with your printer image</small>
+    </div>
+    <div class="printer-info">
+      <div class="printer-name">Creality <span>Ender 5 S1</span></div>
+      <p class="printer-desc">Our most material-versatile printer. The Ender 5 S1 is the only printer in our lab capable of printing PET-GF (glass fiber reinforced), making it extremely valuable for chassis design where strength and stiffness are critical. Its build volume also allows larger rover components to be printed as single parts.</p>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-label">Build Volume</div>
+          <div class="spec-value">220 × 220 × 280 mm</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Materials</div>
+          <div class="spec-value">PLA, PETG, TPU, PET-GF</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Best For</div>
+          <div class="spec-value">Chassis & structural parts</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Unique Capability</div>
+          <div class="spec-value">PET-GF (glass fiber)</div>
+        </div>
+      </div>
+      <span class="highlight-chip">Only printer capable of PET-GF</span>
+    </div>
+  </div>
+
+  <!-- PRUSA -->
+  <div class="printer-card">
+    <img src="IMG_8251.jpg" alt="Prusa MK3 3D Printer" />
+    <div class="printer-info">
+      <div class="printer-name">Prusa <span>MK3</span></div>
+      <p class="printer-desc">Our most reliable printer for precision parts. The Prusa MK3's build volume is suited for small to medium-sized components, and its consistent, accurate print quality makes it the go-to for parts where tolerances matter. Supports both rigid and flexible materials.</p>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-label">Build Volume</div>
+          <div class="spec-value">250 × 210 × 210 mm</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Materials</div>
+          <div class="spec-value">PLA, TPU, PETG</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Best For</div>
+          <div class="spec-value">Precision components</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Rigid & Flexible</div>
+          <div class="spec-value">Yes</div>
+        </div>
+      </div>
+      <span class="highlight-chip">Most consistent print quality</span>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn-back"><i class="ti ti-arrow-left"></i> Back to home</a>
+</div>
+
+<footer>
+  <p>© 2026 <span>UB ASME</span> — University at Buffalo Student Chapter.</p>
+</footer>
+</body>
+</html>
