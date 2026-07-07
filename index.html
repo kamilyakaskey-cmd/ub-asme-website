@@ -9,474 +9,79 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --blue: #5b9bd5;
-      --blue-light: #78b0df;
-      --navy: #0a1628;
-      --navy-mid: #1a3a6e;
-      --text: #1a1a1a;
-      --text-muted: #555;
-      --bg: #f5f5f3;
-      --bg-card: #ffffff;
-      --border: rgba(0,0,0,0.1);
-      --radius-md: 8px;
-      --radius-lg: 14px;
+      --blue: #5b9bd5; --blue-light: #78b0df; --navy: #0a1628; --navy-mid: #1a3a6e;
+      --text: #1a1a1a; --text-muted: #555; --bg: #f5f5f3; --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.1); --radius-md: 8px; --radius-lg: 14px;
     }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10, 22, 40, 0.97);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--navy-mid);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 26px;
-      color: #fff;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,22,40,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--navy-mid); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 0.04em; text-decoration: none; }
     .nav-logo span { color: var(--blue); }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 14px;
-      color: #8ba8c8;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: #8ba8c8; text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: #fff; }
-
-    /* SECTIONS */
-    section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
-
-    /* HERO */
-    .hero-section {
-      max-width: 100%;
-      padding: 0;
-    }
-    .hero {
-      background: var(--navy);
-      padding: 5rem 3rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 320px; height: 320px;
-      border: 2px solid var(--navy-mid);
-      border-radius: 50%;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px; left: 60px;
-      width: 240px; height: 240px;
-      border: 1.5px solid var(--navy-mid);
-      border-radius: 50%;
-    }
+    .hero-section { max-width: 100%; padding: 0; }
+    .hero { background: var(--navy); padding: 5rem 3rem 4rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border: 2px solid var(--navy-mid); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -100px; left: 60px; width: 240px; height: 240px; border: 1.5px solid var(--navy-mid); border-radius: 50%; }
     .hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
-    .eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(64px, 10vw, 96px);
-      line-height: 1;
-      color: #fff;
-      letter-spacing: 0.02em;
-      margin-bottom: 1.25rem;
-    }
+    .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 10vw, 96px); line-height: 1; color: #fff; letter-spacing: 0.02em; margin-bottom: 1.25rem; }
     .hero h1 span { color: var(--blue); }
-    .hero p {
-      font-size: 17px;
-      color: #8ba8c8;
-      max-width: 540px;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
+    .hero p { font-size: 17px; color: #8ba8c8; max-width: 540px; line-height: 1.7; margin-bottom: 2rem; }
     .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--blue);
-      color: var(--navy);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 11px 26px;
-      border-radius: var(--radius-md);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s;
-    }
+    .btn-primary { background: var(--blue); color: var(--navy); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 11px 26px; border-radius: var(--radius-md); border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
     .btn-primary:hover { background: var(--blue-light); }
-    .btn-secondary {
-      background: transparent;
-      color: #8ba8c8;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 11px 26px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--navy-mid);
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: border-color 0.2s, color 0.2s;
-    }
+    .btn-secondary { background: transparent; color: #8ba8c8; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 11px 26px; border-radius: var(--radius-md); border: 1px solid var(--navy-mid); cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
     .btn-secondary:hover { border-color: var(--blue); color: #fff; }
-
-    /* SHARED SECTION HEADER */
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.5rem;
-    }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 42px;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.4rem;
-    }
-    .section-sub {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
-    }
-
-    /* TEAMS */
-    .teams-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 14px;
-    }
-    .team-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.25rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .team-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-    .team-card.coming {
-      border-color: var(--blue);
-      border-width: 1.5px;
-    }
-    .team-icon {
-      width: 44px; height: 44px;
-      background: var(--navy);
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      color: var(--blue);
-      margin-bottom: 14px;
-    }
-    .team-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      letter-spacing: 0.02em;
-      margin-bottom: 6px;
-    }
-    .team-card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-    .badge-new {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      background: #dbeeff;
-      color: #185fa5;
-      padding: 3px 10px;
-      border-radius: 99px;
-      margin-bottom: 10px;
-    }
-
-    /* ABOUT */
-    .about-box {
-      background: var(--navy);
-      border-radius: var(--radius-lg);
-      padding: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    .about-box h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 42px;
-      color: #fff;
-      letter-spacing: 0.02em;
-      margin-bottom: 1rem;
-    }
-    .about-box h2 span { color: var(--blue); }
-    .about-box p {
-      font-size: 15px;
-      color: #8ba8c8;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--navy-mid);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-    }
-    .stat-card .num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 40px;
-      color: var(--blue);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .stat-card .label {
-      font-size: 12px;
-      color: #8ba8c8;
-      font-weight: 500;
-    }
-
-    /* EVENTS */
-    .events-list { display: flex; flex-direction: column; gap: 12px; }
-    .event-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .event-date {
-      text-align: center;
-      min-width: 52px;
-    }
-    .event-date .month {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
-    .event-date .day {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 36px;
-      line-height: 1;
-      color: var(--text);
-    }
-    .event-info h4 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-    .event-info p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* TEAM LINK CARDS */
-    .team-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .team-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-    .card-arrow {
-      display: block;
-      margin-top: 12px;
-      font-size: 16px;
-      color: var(--blue);
-      transition: transform 0.2s;
-    }
+    section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    .section-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6; }
+    .teams-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+    .team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem 1.25rem; }
+    .team-card.coming { border-color: var(--blue); border-width: 1.5px; }
+    .team-link { text-decoration: none; color: inherit; display: block; transition: transform 0.2s, box-shadow 0.2s; }
+    .team-link:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .team-icon { width: 44px; height: 44px; background: var(--navy); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--blue); margin-bottom: 14px; }
+    .team-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.02em; margin-bottom: 6px; }
+    .team-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .badge-new { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: #e6f1fb; color: #185fa5; padding: 2px 8px; border-radius: 99px; margin-bottom: 8px; }
+    .card-arrow { display: block; margin-top: 12px; font-size: 16px; color: var(--blue); transition: transform 0.2s; }
     .team-link:hover .card-arrow { transform: translateX(4px); }
-
-    /* SPONSORS */
-    .sponsor-hero {
-      background: var(--navy);
-      border-radius: var(--radius-lg);
-      padding: 3rem;
-      margin-bottom: 2rem;
-    }
+    .about-box { background: var(--navy); border-radius: var(--radius-lg); padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+    .about-box h2 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: #fff; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .about-box h2 span { color: var(--blue); }
+    .about-box p { font-size: 15px; color: #8ba8c8; line-height: 1.7; margin-bottom: 1rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat-card { background: rgba(255,255,255,0.05); border: 1px solid var(--navy-mid); border-radius: var(--radius-md); padding: 1.25rem; }
+    .stat-card .num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--blue); line-height: 1; margin-bottom: 4px; }
+    .stat-card .label { font-size: 12px; color: #8ba8c8; font-weight: 500; }
+    .sponsor-hero { background: var(--navy); border-radius: var(--radius-lg); padding: 3rem; margin-bottom: 2rem; }
     .sponsor-hero h2 { font-family: 'Bebas Neue', sans-serif; font-size: 38px; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.75rem; }
     .sponsor-hero h2 span { color: var(--blue); }
     .sponsor-hero p { font-size: 15px; color: #8ba8c8; line-height: 1.7; max-width: 600px; margin-bottom: 0.75rem; }
-
-    .sponsor-tiers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-bottom: 2.5rem;
-    }
-    .tier-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-    }
-    .tier-card.gold { border-color: #d4a820; border-top: 3px solid #d4a820; }
-    .tier-card.silver { border-color: #9aa0a8; border-top: 3px solid #9aa0a8; }
-    .tier-card.bronze { border-color: #c07840; border-top: 3px solid #c07840; }
-    .tier-label {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; margin-bottom: 0.4rem;
-    }
-    .tier-card.gold .tier-label { color: #b8900a; }
-    .tier-card.silver .tier-label { color: #6a7480; }
-    .tier-card.bronze .tier-label { color: #9a5820; }
-    .tier-amount {
-      font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 0.02em; margin-bottom: 0.75rem;
-    }
-    .tier-perks { list-style: none; }
-    .tier-perks li {
-      font-size: 13px; color: var(--text-muted);
-      padding: 5px 0; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .tier-perks li:last-child { border-bottom: none; }
-    .tier-perks i { font-size: 15px; color: var(--blue); flex-shrink: 0; }
-
-    .sponsor-slots {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    .sponsor-slots h3 { font-size: 18px; font-weight: 500; margin-bottom: 0.5rem; }
-    .sponsor-slots p { font-size: 14px; color: var(--text-muted); margin-bottom: 1.5rem; }
-    .sponsor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-    }
-    .sponsor-slot {
-      height: 80px;
-      border: 1.5px dashed #c8d4de;
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; color: #aabbc8; font-weight: 500;
-    }
-
-    .sponsor-contact-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      max-width: 560px;
-    }
-    .sponsor-contact-box label {
-      display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--text);
-    }
-    .sponsor-contact-box input,
-    .sponsor-contact-box textarea {
-      width: 100%; padding: 10px 14px; border: 1px solid var(--border);
-      border-radius: var(--radius-md); font-family: 'DM Sans', sans-serif; font-size: 14px;
-      background: var(--bg); color: var(--text); margin-bottom: 1.25rem; outline: none;
-      transition: border-color 0.2s;
-    }
-    .sponsor-contact-box input:focus,
-    .sponsor-contact-box textarea:focus { border-color: var(--blue); }
+    .current-sponsor-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .current-sponsor-box h3 { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+    .current-sponsor-box p { font-size: 14px; color: var(--text-muted); }
+    .autodesk-logo { background: #000; border-radius: var(--radius-md); padding: 1rem 1.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .autodesk-logo span { font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 500; color: #fff; letter-spacing: 0.02em; }
+    .autodesk-logo span em { color: #0696D7; font-style: normal; }
+    .sponsor-contact-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; max-width: 560px; }
+    .sponsor-contact-box label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--text); }
+    .sponsor-contact-box input, .sponsor-contact-box textarea { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius-md); font-family: 'DM Sans', sans-serif; font-size: 14px; background: var(--bg); color: var(--text); margin-bottom: 1.25rem; outline: none; transition: border-color 0.2s; }
+    .sponsor-contact-box input:focus, .sponsor-contact-box textarea:focus { border-color: var(--blue); }
     .sponsor-contact-box textarea { resize: vertical; min-height: 100px; }
-
-
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      max-width: 560px;
-    }
-    .contact-box label {
-      display: block;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-    .contact-box input,
-    .contact-box textarea {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      background: var(--bg);
-      color: var(--text);
-      margin-bottom: 1.25rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .contact-box input:focus,
-    .contact-box textarea:focus { border-color: var(--blue); }
-    .contact-box textarea { resize: vertical; min-height: 100px; }
-
-    /* FOOTER */
-    footer {
-      background: var(--navy);
-      color: #8ba8c8;
-      text-align: center;
-      padding: 2rem;
-      font-size: 13px;
-    }
+    footer { background: var(--navy); color: #8ba8c8; text-align: center; padding: 2rem; font-size: 13px; }
     footer span { color: var(--blue); }
-
-    @media (max-width: 640px) {
-      .about-box { grid-template-columns: 1fr; }
-      nav .nav-links { display: none; }
-    }
+    @media (max-width: 640px) { .about-box { grid-template-columns: 1fr; } nav .nav-links { display: none; } }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">UB <span>ASME</span></a>
+    <a href="index.html" class="nav-logo">UB <span>ASME</span></a>
     <ul class="nav-links">
       <li><a href="#teams">Teams</a></li>
       <li><a href="#about">About</a></li>
@@ -485,7 +90,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <div class="hero-section">
     <div class="hero">
       <div class="hero-inner">
@@ -500,42 +104,35 @@
     </div>
   </div>
 
-  <!-- TEAMS -->
   <section id="teams">
     <p class="section-label">What we build</p>
     <h2 class="section-title">Our Project Teams</h2>
     <p class="section-sub">Compete, design, and build alongside fellow engineers across five disciplines.</p>
-
     <div class="teams-grid">
-
       <a href="iam3d.html" class="team-card team-link">
         <div class="team-icon"><i class="ti ti-3d-cube-sphere" aria-hidden="true"></i></div>
         <h3>IAM3D</h3>
         <p>Additive manufacturing and 3D design — pushing the limits of what you can print.</p>
         <span class="card-arrow"><i class="ti ti-arrow-right"></i></span>
       </a>
-
       <a href="solar-splash.html" class="team-card team-link">
         <div class="team-icon"><i class="ti ti-solar-panel" aria-hidden="true"></i></div>
         <h3>Solar Splash</h3>
         <p>Design and race a solar-powered boat in an international collegiate competition.</p>
         <span class="card-arrow"><i class="ti ti-arrow-right"></i></span>
       </a>
-
       <a href="hpvc.html" class="team-card team-link">
         <div class="team-icon"><i class="ti ti-bike" aria-hidden="true"></i></div>
         <h3>e-HPVC</h3>
         <p>Engineer an electric human-powered vehicle for the ASME HPVC challenge.</p>
         <span class="card-arrow"><i class="ti ti-arrow-right"></i></span>
       </a>
-
       <a href="battle-bots.html" class="team-card team-link">
         <div class="team-icon"><i class="ti ti-robot" aria-hidden="true"></i></div>
         <h3>Battle Bots</h3>
         <p>Build and battle combat robots — mechanical warfare, engineering style.</p>
         <span class="card-arrow"><i class="ti ti-arrow-right"></i></span>
       </a>
-
       <a href="sdc.html" class="team-card coming team-link">
         <span class="badge-new">Coming next semester</span>
         <div class="team-icon"><i class="ti ti-car" aria-hidden="true"></i></div>
@@ -543,11 +140,15 @@
         <p>Self-Driving Car challenge — autonomous vehicle design coming soon to UB ASME.</p>
         <span class="card-arrow"><i class="ti ti-arrow-right"></i></span>
       </a>
-
+      <a href="lab.html" class="team-card team-link">
+        <div class="team-icon"><i class="ti ti-printer" aria-hidden="true"></i></div>
+        <h3>Our Lab</h3>
+        <p>Large format 3D printers and equipment powering all of our projects.</p>
+        <span class="card-arrow"><i class="ti ti-arrow-right"></i></span>
+      </a>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" style="padding-top: 0;">
     <div class="about-box">
       <div>
@@ -557,27 +158,14 @@
         <a href="#contact" class="btn-primary">Get involved</a>
       </div>
       <div class="about-stats">
-        <div class="stat-card">
-          <div class="num">5</div>
-          <div class="label">Project Teams</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">UB</div>
-          <div class="label">Based in Buffalo, NY</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">ASME</div>
-          <div class="label">Official Chapter</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">∞</div>
-          <div class="label">Open to All Majors</div>
-        </div>
+        <div class="stat-card"><div class="num">5</div><div class="label">Project Teams</div></div>
+        <div class="stat-card"><div class="num">UB</div><div class="label">Based in Buffalo, NY</div></div>
+        <div class="stat-card"><div class="num">ASME</div><div class="label">Official Chapter</div></div>
+        <div class="stat-card"><div class="num">∞</div><div class="label">Open to All Majors</div></div>
       </div>
     </div>
   </section>
 
-  <!-- SPONSORS -->
   <section id="sponsors">
     <p class="section-label">Partner with us</p>
     <h2 class="section-title">Sponsor UB ASME</h2>
@@ -589,16 +177,13 @@
       <p>Sponsoring UB ASME means your brand reaches highly motivated engineering students, future industry professionals, and the University at Buffalo's engineering community. You'll be directly funding hands-on engineering education and student innovation.</p>
     </div>
 
-    
-
-    <div class="sponsor-slots">
-      <h3>Our Current Sponsors</h3>
-      <p>We are actively seeking sponsors for the 2026–2027 academic year. Your logo could be here.</p>
-      <div class="sponsor-grid">
-        <div class="sponsor-slot">Your Logo Here</div>
-        <div class="sponsor-slot">Your Logo Here</div>
-        <div class="sponsor-slot">Your Logo Here</div>
-        <div class="sponsor-slot">Your Logo Here</div>
+    <div class="current-sponsor-box">
+      <div class="autodesk-logo">
+        <span><em>AUTODESK</em></span>
+      </div>
+      <div>
+        <h3>Autodesk — Official Sponsor</h3>
+        <p>Autodesk sponsors UB ASME with access to Fusion 360, the industry-leading CAD and engineering software our teams use to design every project — from drone frames to rover chassis.</p>
       </div>
     </div>
 
@@ -606,27 +191,19 @@
     <h2 class="section-title">Become a Sponsor</h2>
     <p class="section-sub">Interested in sponsoring UB ASME? Fill out the form below and our officers will get back to you.</p>
 
-    <div class="sponsor-contact-box">
+    <div class="sponsor-contact-box" id="contact">
       <label for="sname">Your Name</label>
       <input type="text" id="sname" placeholder="Full name" />
-
       <label for="scompany">Company / Organization</label>
       <input type="text" id="scompany" placeholder="Company name" />
-
       <label for="semail">Email Address</label>
       <input type="email" id="semail" placeholder="you@company.com" />
-
-      <label for="stier">Sponsorship Tier of Interest</label>
-      <input type="text" id="stier" placeholder="Gold, Silver, Bronze, or Custom" />
-
       <label for="smessage">Message (optional)</label>
       <textarea id="smessage" placeholder="Any questions or details you'd like to share..."></textarea>
-
       <button class="btn-primary" style="width: 100%;">Send Sponsorship Inquiry</button>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2026 <span>UB ASME</span> — University at Buffalo Student Chapter. All rights reserved.</p>
   </footer>
