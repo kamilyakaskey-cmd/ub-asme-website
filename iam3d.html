@@ -15,12 +15,7 @@
       --border: rgba(0,0,0,0.1); --radius-md: 8px; --radius-lg: 14px;
     }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,22,40,0.97); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--navy-mid);
-      padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
-    }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,22,40,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--navy-mid); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 0.04em; text-decoration: none; }
     .nav-logo span { color: var(--blue); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -28,79 +23,36 @@
     .nav-links a:hover { color: #fff; }
     .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--blue); text-decoration: none; margin-bottom: 2rem; }
     .back-link:hover { color: var(--blue-light); }
-
-    .page-hero {
-      background: var(--navy); padding: 4rem 2rem 3rem; position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: ''; position: absolute; top: -60px; right: -60px;
-      width: 280px; height: 280px; border: 2px solid var(--navy-mid); border-radius: 50%;
-    }
+    .page-hero { background: var(--navy); padding: 4rem 2rem 3rem; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border: 2px solid var(--navy-mid); border-radius: 50%; }
     .page-hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
     .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
     .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 80px); color: #fff; letter-spacing: 0.02em; margin-bottom: 1rem; }
     .page-hero h1 span { color: var(--blue); }
     .page-hero p { font-size: 16px; color: #8ba8c8; max-width: 560px; line-height: 1.7; }
-
     .content { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
-
     .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
     .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
     .section-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 2.5rem; max-width: 600px; }
-
     .year-block { margin-bottom: 4rem; }
-    .year-header {
-      display: flex; align-items: center; gap: 16px; margin-bottom: 1.5rem;
-      padding-bottom: 1rem; border-bottom: 1px solid var(--border);
-    }
-    .year-badge {
-      font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--blue); line-height: 1;
-    }
+    .year-header { display: flex; align-items: center; gap: 16px; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .year-badge { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--blue); line-height: 1; }
     .year-title { font-size: 22px; font-weight: 500; }
     .year-title span { display: block; font-size: 13px; font-weight: 400; color: var(--text-muted); margin-top: 2px; }
-
-    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .project-card {
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
-    }
-    .photo-placeholder {
-      width: 100%; height: 220px; background: #e8edf2;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px; color: #9aaab8; font-size: 13px;
-      border-bottom: 1px solid var(--border);
-    }
-    .photo-placeholder i { font-size: 36px; }
-    .photo-placeholder span { font-size: 12px; color: #b0bec5; }
+    .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; max-width: 520px; }
+    .project-card img { width: 100%; height: 300px; object-fit: cover; display: block; }
     .card-body { padding: 1.25rem; }
     .card-body h4 { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
     .card-body p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
-    .desc-placeholder {
-      background: #f0f4f8; border: 1.5px dashed #c5d5e8;
-      border-radius: var(--radius-md); padding: 1.25rem 1.5rem;
-      font-size: 14px; color: #7a90a4; font-style: italic; margin-top: 1rem;
-    }
-
-    .highlight-box {
-      background: var(--navy); border-radius: var(--radius-lg); padding: 1.5rem 2rem;
-      display: flex; align-items: flex-start; gap: 14px; margin-top: 1rem;
-    }
+    .highlight-box { background: var(--navy); border-radius: var(--radius-lg); padding: 1.5rem 2rem; display: flex; align-items: flex-start; gap: 14px; margin-top: 1.25rem; max-width: 520px; }
     .highlight-box i { font-size: 22px; color: var(--blue); margin-top: 2px; flex-shrink: 0; }
     .highlight-box p { font-size: 14px; color: #8ba8c8; line-height: 1.6; }
     .highlight-box strong { color: #fff; }
-
-    .btn-back {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--blue); font-family: 'DM Sans', sans-serif;
-      font-size: 14px; font-weight: 500; padding: 10px 20px;
-      border-radius: var(--radius-md); border: 1px solid var(--blue);
-      cursor: pointer; text-decoration: none; transition: all 0.2s; margin-top: 1rem;
-    }
+    .btn-back { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--blue); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: var(--radius-md); border: 1px solid var(--blue); cursor: pointer; text-decoration: none; transition: all 0.2s; margin-top: 1rem; }
     .btn-back:hover { background: var(--blue); color: var(--navy); }
-
     footer { background: var(--navy); color: #8ba8c8; text-align: center; padding: 2rem; font-size: 13px; }
     footer span { color: var(--blue); }
-    @media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } nav .nav-links { display: none; } }
+    @media (max-width: 600px) { nav .nav-links { display: none; } }
   </style>
 </head>
 <body>
@@ -110,7 +62,7 @@
   <ul class="nav-links">
     <li><a href="index.html#teams">Teams</a></li>
     <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#events">Events</a></li>
+    <li><a href="index.html#sponsors">Sponsors</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
 </nav>
@@ -119,53 +71,33 @@
   <div class="page-hero-inner">
     <p class="eyebrow">UB ASME Project Team</p>
     <h1>IAM<span>3D</span></h1>
-    <p>Integrated Additive Manufacturing — designing and building complex engineering systems through 3D printing, CAD, and innovative fabrication techniques.</p>
+    <p>Integrated Additive Manufacturing — designing and building complete engineering systems where every single component, down to the bearings, comes off a 3D printer.</p>
   </div>
 </div>
 
 <div class="content">
-
   <a href="index.html" class="back-link"><i class="ti ti-arrow-left"></i> Back to all teams</a>
 
   <p class="section-label">Project History</p>
   <h2 class="section-title">What We've Built</h2>
-  <p class="section-sub">The IAM3D team takes on a new engineering challenge every year, designing and fabricating complete systems from the ground up.</p>
+  <p class="section-sub">Every year the IAM3D team takes on a new engineering challenge — fully designed and fabricated in-house using additive manufacturing.</p>
 
   <!-- 2026 -->
   <div class="year-block">
     <div class="year-header">
       <div class="year-badge">2026</div>
-      <div class="year-title">
-        Rover
-        <span>Florida EFX — UCF, Orlando FL</span>
+      <div class="year-title">Rover<span>Florida EFX — UCF, Orlando FL</span></div>
+    </div>
+    <div class="project-card">
+      <img src="IMG_3698.jpg" alt="2026 IAM3D Rover" />
+      <div class="card-body">
+        <h4>2026 Rover — Florida EFX</h4>
+        <p>Our 2026 rover was designed and built entirely using 3D printing — every single component, including the bearings, was printed in-house by the team. No off-the-shelf parts. The team traveled to Orlando, Florida to compete at Florida EFX at the University of Central Florida (UCF), representing UB ASME on a national stage.</p>
       </div>
     </div>
-
-    <div class="project-grid">
-      <div class="project-card">
-        <div class="photo-placeholder">
-          <i class="ti ti-photo" aria-hidden="true"></i>
-          Add Rover Photo
-          <span>Replace this placeholder with your image</span>
-        </div>
-        <div class="card-body">
-          <h4>2026 Rover — Florida EFX</h4>
-          <p>Our 2026 project was a fully 3D-printed rover, competed at the Florida Engineering Fabrication Expo (EFX) hosted at the University of Central Florida (UCF).</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-body" style="padding: 1.5rem;">
-          <h4 style="margin-bottom: 12px;">Competition Highlights</h4>
-          <p style="margin-bottom: 12px;">The team traveled to Orlando, Florida to compete at Florida EFX at UCF — one of the premier collegiate fabrication competitions in the country.</p>
-          <p>Every component of the rover was designed in-house by UB ASME members, pushing the limits of additive manufacturing in structural applications.</p>
-        </div>
-      </div>
-    </div>
-
     <div class="highlight-box">
       <i class="ti ti-map-pin" aria-hidden="true"></i>
-      <p><strong>Competed at Florida EFX, University of Central Florida (UCF) — 2026.</strong> The team represented UB on a national stage, showcasing innovative rover design and fabrication.</p>
+      <p><strong>Competed at Florida EFX, University of Central Florida (UCF) — 2026.</strong> Every component of the rover, including the bearings, was 3D printed entirely in-house.</p>
     </div>
   </div>
 
@@ -173,46 +105,22 @@
   <div class="year-block">
     <div class="year-header">
       <div class="year-badge">2025</div>
-      <div class="year-title">
-        Drone
-        <span>IAM3D Competition — 2025</span>
-      </div>
+      <div class="year-title">Drone<span>EFX Competition — 2025</span></div>
     </div>
-
-    <div class="project-grid">
-      <div class="project-card">
-        <div class="photo-placeholder">
-          <i class="ti ti-photo" aria-hidden="true"></i>
-          Add Drone Photo
-          <span>Replace this placeholder with your image</span>
-        </div>
-        <div class="card-body">
-          <h4>2025 Drone</h4>
-          <p>The 2025 IAM3D team designed and built a fully 3D-printed drone, demonstrating precision additive manufacturing and aerodynamic engineering.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="photo-placeholder">
-          <i class="ti ti-photo" aria-hidden="true"></i>
-          Add Another Photo
-          <span>Team photo, build process, etc.</span>
-        </div>
-        <div class="card-body">
-          <h4>Behind the Build</h4>
-          <p class="desc-placeholder">📝 Add more details about the 2025 drone project here — competition results, design highlights, challenges overcome, etc.</p>
-        </div>
+    <div class="project-card">
+      <img src="IMG_0817.jpg" alt="2025 IAM3D Drone" />
+      <div class="card-body">
+        <h4>2025 Drone — EFX</h4>
+        <p>Our 2025 drone was designed and built entirely using 3D printing — every single component, including the bearings, was printed in-house by the team. No off-the-shelf parts. The team traveled to compete at an EFX competition, representing UB ASME on a national stage.</p>
       </div>
     </div>
   </div>
 
   <a href="index.html" class="btn-back"><i class="ti ti-arrow-left"></i> Back to all teams</a>
-
 </div>
 
 <footer>
   <p>© 2026 <span>UB ASME</span> — University at Buffalo Student Chapter.</p>
 </footer>
-
 </body>
 </html>
