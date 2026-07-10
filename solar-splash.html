@@ -46,29 +46,12 @@
     .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 0.02em; margin-bottom: 0.5rem; }
     .section-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 2.5rem; max-width: 640px; }
 
-    .win-banner {
-      background: linear-gradient(135deg, #0a1628 0%, #0f2d55 100%);
-      border-radius: var(--radius-lg); padding: 2rem 2.5rem;
-      display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem;
-      border: 1px solid var(--navy-mid);
-    }
-    .trophy-icon { font-size: 56px; color: #f0c040; flex-shrink: 0; }
-    .win-text h3 { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #fff; letter-spacing: 0.02em; margin-bottom: 6px; }
-    .win-text p { font-size: 14px; color: #8ba8c8; line-height: 1.6; }
-
     .build-section { margin-bottom: 3rem; }
-    .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .build-card {
       background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+      max-width: 520px;
     }
-    .photo-placeholder {
-      width: 100%; height: 240px; background: #dde8f2;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px; color: #7a9ab8; border-bottom: 1px solid var(--border);
-    }
-    .photo-placeholder i { font-size: 40px; }
-    .photo-placeholder .ph-label { font-size: 13px; font-weight: 500; }
-    .photo-placeholder .ph-sub { font-size: 11px; color: #aac0d0; }
+    .build-card img { width: 100%; height: auto; display: block; }
     .card-body { padding: 1.5rem; }
     .card-body h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
     .card-body p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
@@ -91,7 +74,7 @@
 
     footer { background: var(--navy); color: #8ba8c8; text-align: center; padding: 2rem; font-size: 13px; }
     footer span { color: var(--blue); }
-    @media (max-width: 600px) { .build-grid { grid-template-columns: 1fr; } .win-banner { flex-direction: column; gap: 1rem; } nav .nav-links { display: none; } }
+    @media (max-width: 600px) { nav .nav-links { display: none; } }
   </style>
 </head>
 <body>
@@ -110,21 +93,13 @@
   <div class="page-hero-inner">
     <p class="eyebrow">UB ASME Project Team</p>
     <h1>Solar <span>Splash</span></h1>
-    <p>Designing and racing solar-powered boats at the international collegiate Solar Splash competition — and winning every single year.</p>
+    <p>Designing and racing solar-powered boats at the international collegiate Solar Splash competition.</p>
   </div>
 </div>
 
 <div class="content">
 
   <a href="index.html" class="back-link"><i class="ti ti-arrow-left"></i> Back to all teams</a>
-
-  <div class="win-banner">
-    <i class="ti ti-trophy" aria-hidden="true" class="trophy-icon" style="font-size: 56px; color: #f0c040; flex-shrink: 0;"></i>
-    <div class="win-text">
-      <h3>We Win Every Year</h3>
-      <p>UB ASME's Solar Splash team has an unbroken record of winning at the international Solar Splash competition. Year after year, our team proves that engineering excellence at Buffalo is second to none.</p>
-    </div>
-  </div>
 
   <div class="what-section">
     <h3>What is Solar Splash?</h3>
@@ -136,28 +111,12 @@
   <h2 class="section-title">What We're Racing in 2026</h2>
   <p class="section-sub">Take a look at this year's solar boat — designed and built entirely by UB ASME members.</p>
 
-  <div class="build-grid" style="margin-bottom: 3rem;">
+  <div class="build-section">
     <div class="build-card">
-      <div class="photo-placeholder">
-        <i class="ti ti-photo" aria-hidden="true"></i>
-        <span class="ph-label">Add This Year's Boat Photo</span>
-        <span class="ph-sub">Replace with your 2026 boat image</span>
-      </div>
+      <img src="solar-splash-boat.jpg" alt="" />
       <div class="card-body">
         <h4>2026 Solar Boat</h4>
         <p>This year's boat features our most refined hull design yet, optimized for both sprint speed and endurance efficiency.</p>
-      </div>
-    </div>
-
-    <div class="build-card">
-      <div class="photo-placeholder">
-        <i class="ti ti-photo" aria-hidden="true"></i>
-        <span class="ph-label">Add Build / Team Photo</span>
-        <span class="ph-sub">Team at work, competition day, etc.</span>
-      </div>
-      <div class="card-body">
-        <h4>The Team in Action</h4>
-        <p>Dozens of UB students contribute to the Solar Splash build each year — from CAD modeling and composite layups to electrical wiring and race-day operations.</p>
       </div>
     </div>
   </div>
