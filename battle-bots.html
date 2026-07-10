@@ -41,18 +41,14 @@
     .clubs-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
     .club-chip { background: rgba(255,255,255,0.07); border: 1px solid var(--navy-mid); border-radius: 99px; padding: 5px 16px; font-size: 13px; color: #8ba8c8; font-weight: 500; }
     .club-chip.us { background: rgba(91,155,213,0.15); border-color: var(--blue); color: var(--blue); }
+    .weight-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+    .weight-chip { background: rgba(232,112,42,0.12); border: 1px solid var(--orange); border-radius: 99px; padding: 5px 16px; font-size: 13px; color: var(--orange); font-weight: 500; }
     .win-banner { background: #1a0a00; border: 1px solid #5a2800; border-radius: var(--radius-lg); padding: 1.75rem 2rem; display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; }
     .win-banner i { font-size: 48px; color: #f0c040; flex-shrink: 0; }
     .win-banner h4 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 0.02em; margin-bottom: 4px; }
     .win-banner p { font-size: 14px; color: #c8a080; line-height: 1.5; }
-    .video-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; max-width: 640px; }
-    .video-card video { width: 100%; display: block; max-height: 380px; background: #000; }
-    .video-caption { padding: 1rem 1.25rem; font-size: 13px; color: var(--text-muted); }
     .bot-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; max-width: 520px; margin-bottom: 2rem; }
-    .photo-placeholder { width: 100%; height: 260px; background: #1e1209; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: #8a6040; }
-    .photo-placeholder i { font-size: 40px; }
-    .photo-placeholder .ph-label { font-size: 13px; font-weight: 500; }
-    .photo-placeholder .ph-sub { font-size: 11px; color: #6a5030; }
+    .bot-card img { width: 100%; height: auto; display: block; }
     .card-body { padding: 1.5rem; }
     .card-body h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
     .card-body p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
@@ -92,8 +88,8 @@
   <div class="win-banner">
     <i class="ti ti-trophy" aria-hidden="true"></i>
     <div>
-      <h4>Champions — Every Year, Including This One</h4>
-      <p>UB ASME has won the Battle Bots competition year after year. We took home the crown again this year, defending our title against every engineering club at UB.</p>
+      <h4>Three-Time Champions — 50lb Class</h4>
+      <p>UB ASME has taken first place in the 50lb weight class three years in a row. This year's win was a joint build with SWE, defending the title once again.</p>
     </div>
   </div>
 
@@ -101,7 +97,13 @@
     <h3>Engineering <span>Week</span></h3>
     <p>Every February, the engineering clubs at the University at Buffalo come together to compete in Engineering Week — a week-long series of events where clubs go head to head for the glory of being the ultimate Engineering club at UB.</p>
     <p>The final and biggest event of the week is the Battle Bots competition. Every engineering club participates, and the energy in the room is electric. It's an incredibly exciting event — even more so when you're in the arena building and fighting your own robot.</p>
-    <p>This year, UB ASME is building an entirely new and upgraded bot from the ground up — a bigger, better machine designed to dominate the competition once again.</p>
+    <p>Robots compete across three weight classes, each with its own division:</p>
+    <div class="weight-row">
+      <span class="weight-chip">UB — 50lb</span>
+      <span class="weight-chip">Penn State — 10lb</span>
+      <span class="weight-chip">Machine Shop — 6lb</span>
+    </div>
+    <p style="margin-top: 1rem;">This year, UB ASME collaborated with SWE to build our 50lb entry.</p>
     <div class="clubs-row">
       <span class="club-chip us">ASME (Us)</span>
       <span class="club-chip">SWE</span>
@@ -113,34 +115,30 @@
   </div>
 
   <p class="section-label">Last Year's Fight</p>
-  <h2 class="section-title">2025 Battle Bots</h2>
-  <p class="section-sub">Watch our bot in action from last year's Engineering Week competition.</p>
+  <h2 class="section-title">2025 Battle Bot</h2>
+  <p class="section-sub">Our bot from last year's Engineering Week competition.</p>
 
-  <div class="video-card">
-    <video controls playsinline>
-      <source src="IMG_0210.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="video-caption">UB ASME Battle Bot — Engineering Week 2025</div>
+  <div class="bot-card">
+    <img src="battlebot-2025.jpg" alt="" />
+    <div class="card-body">
+      <h4>2025 Battle Bot</h4>
+      <p>Last year's entry in the 50lb weight class, built and driven by the UB ASME team.</p>
+    </div>
   </div>
 
-  <p class="section-label">This Year's Machine</p>
-  <h2 class="section-title">The 2026 Bot</h2>
-  <p class="section-sub">We're building an entirely new and upgraded bot this year — more powerful, more durable, and more dangerous than ever before.</p>
+  <p class="section-label">This Year's Champion</p>
+  <h2 class="section-title">2026 Battle Bot</h2>
+  <p class="section-sub">Built in collaboration with SWE — the machine that brought home first place in the 50lb class this year.</p>
 
   <div class="callout">
     <p><strong>Real hands-on engineering experience.</strong> Building a battle robot means tackling real mechanical design challenges — structural integrity, drive systems, weapon mechanics, and electronics — all under competition pressure.</p>
   </div>
 
   <div class="bot-card">
-    <div class="photo-placeholder">
-      <i class="ti ti-robot" aria-hidden="true"></i>
-      <span class="ph-label">Add This Year's Bot Photo</span>
-      <span class="ph-sub">Replace with your 2026 bot image</span>
-    </div>
+    <img src="battlebot-2026.jpg" alt="" />
     <div class="card-body">
-      <h4>2026 Battle Bot</h4>
-      <p>An all-new design, built from scratch. Upgraded drivetrain, reinforced armor, and a completely redesigned weapon system — ready to defend the championship.</p>
+      <h4>2026 Battle Bot — Champion</h4>
+      <p>This year's winning bot, co-built with SWE. First place in the 50lb weight class — three years running.</p>
     </div>
   </div>
 
