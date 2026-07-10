@@ -77,17 +77,15 @@
 
     .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .photo-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
-    .photo-placeholder {
-      width: 100%; height: 240px; background: #0d1e10;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px; color: #4a8060; border-bottom: 1px solid var(--border);
-    }
-    .photo-placeholder i { font-size: 40px; }
-    .photo-placeholder .ph-label { font-size: 13px; font-weight: 500; }
-    .photo-placeholder .ph-sub { font-size: 11px; color: #3a6040; }
+    .photo-card img { width: 100%; height: auto; display: block; }
     .card-body { padding: 1.5rem; }
     .card-body h4 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
     .card-body p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .highlight-box { background: var(--navy); border-radius: var(--radius-lg); padding: 1.5rem 2rem; display: flex; align-items: flex-start; gap: 14px; margin-top: 1.5rem; }
+    .highlight-box i { font-size: 22px; color: var(--green-light); margin-top: 2px; flex-shrink: 0; }
+    .highlight-box p { font-size: 14px; color: #8ba8c8; line-height: 1.6; }
+    .highlight-box strong { color: #fff; }
 
     .btn-back {
       display: inline-flex; align-items: center; gap: 8px;
@@ -157,19 +155,15 @@
       <div class="year-badge">2025</div>
       <div class="year-title">
         e-HPVC Competition
-        <span>ASME e-HPVC — 2025</span>
+        <span>ASME EFx North Carolina — UNC Charlotte, Charlotte NC</span>
       </div>
     </div>
 
-    <p class="section-sub" style="margin-bottom: 1.5rem;">UB ASME competed in the 2025 ASME e-HPVC challenge, fielding a fully built electric human-powered vehicle designed and fabricated entirely by our team.</p>
+    <p class="section-sub" style="margin-bottom: 1.5rem;">UB ASME competed in the 2025 ASME e-HPVC challenge, fielding a fully built electric human-powered vehicle designed and fabricated entirely by our team. The team traveled to Charlotte, North Carolina to compete at ASME EFx North Carolina at UNC Charlotte, representing UB ASME on a national stage.</p>
 
     <div class="photo-grid">
       <div class="photo-card">
-        <div class="photo-placeholder">
-          <i class="ti ti-photo" aria-hidden="true"></i>
-          <span class="ph-label">Add 2025 Vehicle Photo</span>
-          <span class="ph-sub">Replace with your HPVC vehicle image</span>
-        </div>
+        <img src="hpvc-vehicle.jpg" alt="" />
         <div class="card-body">
           <h4>2025 e-HPVC Vehicle</h4>
           <p>Our 2025 vehicle featured a custom frame, aerodynamic fairing, and integrated electric assist system — designed from the ground up by UB ASME members.</p>
@@ -177,16 +171,17 @@
       </div>
 
       <div class="photo-card">
-        <div class="photo-placeholder">
-          <i class="ti ti-photo" aria-hidden="true"></i>
-          <span class="ph-label">Add Competition / Team Photo</span>
-          <span class="ph-sub">Race day, team photo, build shots, etc.</span>
-        </div>
+        <img src="hpvc-riding.jpg" alt="" />
         <div class="card-body">
-          <h4>The Team</h4>
-          <p>Building an HPVC vehicle takes a dedicated team working across disciplines — from structural welding and composite fabrication to motor controllers and wiring harnesses.</p>
+          <h4>On the Road</h4>
+          <p>Putting the vehicle through a test ride ahead of competition — validating handling, stability, and the electric assist system under real riding conditions.</p>
         </div>
       </div>
+    </div>
+
+    <div class="highlight-box">
+      <i class="ti ti-map-pin" aria-hidden="true"></i>
+      <p><strong>Competed at ASME EFx North Carolina, UNC Charlotte.</strong> A fully enclosed, electric-assist recumbent vehicle designed and built entirely in-house, raced in both sprint and endurance events.</p>
     </div>
   </div>
 
