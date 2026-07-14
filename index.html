@@ -39,6 +39,8 @@
     .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
     .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
     .section-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.6; }
+    .subsection-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.02em; margin-bottom: 0.25rem; margin-top: 2.5rem; }
+    .subsection-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.6; }
     .teams-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
     .team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem 1.25rem; }
     .team-card.coming { border-color: var(--blue); border-width: 1.5px; }
@@ -107,7 +109,10 @@
   <section id="teams">
     <p class="section-label">What we build</p>
     <h2 class="section-title">Our Project Teams</h2>
-    <p class="section-sub">Compete, design, and build alongside fellow engineers across five disciplines.</p>
+    <p class="section-sub">Compete, design, and build alongside fellow engineers — across our competition teams and student-driven passion projects.</p>
+
+    <h3 class="subsection-title">Competitions</h3>
+    <p class="subsection-sub">Our teams that design, build, and compete at national and international events.</p>
     <div class="teams-grid">
       <a href="iam3d.html" class="team-card team-link">
         <div class="team-icon"><i class="ti ti-3d-cube-sphere" aria-hidden="true"></i></div>
@@ -140,6 +145,26 @@
         <p>Self-Driving Car challenge — autonomous vehicle design coming soon to UB ASME.</p>
         <span class="card-arrow"><i class="ti ti-arrow-right"></i></span>
       </a>
+    </div>
+
+    <h3 class="subsection-title">Student Projects</h3>
+    <p class="subsection-sub">Passion projects built by our members outside of competition — exploring engineering just because they want to.</p>
+    <div class="teams-grid">
+      <div class="team-card">
+        <div class="team-icon"><i class="ti ti-steering-wheel" aria-hidden="true"></i></div>
+        <h3>3D-Printed RC Car</h3>
+        <p>A fully custom RC car with 3D-printed gears and steering system, designed and built by Max and Apurbo.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-icon"><i class="ti ti-drone" aria-hidden="true"></i></div>
+        <h3>Drone</h3>
+        <p>A separate personal drone build by our members, independent of the IAM3D competition drone.</p>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Facilities</h3>
+    <p class="subsection-sub">The equipment and lab space behind everything we build.</p>
+    <div class="teams-grid">
       <a href="lab.html" class="team-card team-link">
         <div class="team-icon"><i class="ti ti-printer" aria-hidden="true"></i></div>
         <h3>Our Lab</h3>
